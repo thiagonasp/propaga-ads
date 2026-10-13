@@ -1,23 +1,34 @@
-# Propaga Ads — versão independente para Vercel
+# Propaga Ads — novo layout para Vercel
 
-Primeira versão de migração. Home reconstruída usando os textos, imagens e identidade da página Wix. Performance e duas páginas de e-books recuperadas do HTML incorporado original. Catálogo de e-books acrescentado para dar acesso às duas páginas; o catálogo Wix estava vazio na inspeção.
+Site institucional redesenhado: identidade verde, fundo escuro e áreas claras; serviços, método, experiência, dashboards, e-books, FAQ e contato. Sem foto pessoal e sem o antigo bloco “Descreva sua empresa...”. Home e catálogo têm CSS e JavaScript incorporados ao HTML para evitar dependência de carregamento desses arquivos.
 
-## Publicar
-1. Crie um repositório `propaga-ads` no GitHub, preferencialmente privado.
-2. Extraia o ZIP e envie o conteúdo de `propaga-ads` (public/, vercel.json, README.md) para a raiz do repositório. Não envie apenas o ZIP.
-3. Na Vercel: Add New > Project > importe o repositório.
-4. Framework Preset: Other. Root Directory: raiz do repositório. Sem Build Command. Output Directory: public.
-5. Deploy. Revise as páginas e links no endereço de teste.
-6. Só após a revisão, adicione propagaads.com.br e www.propagaads.com.br em Settings > Domains. Aplique os registros DNS exatos exibidos pela Vercel no provedor atual do domínio. Preserve MX e TXT de email.
-7. Não cancele o Wix antes da migração e de verificar se o domínio depende da conta Wix para registro/DNS.
+## Atualizar o projeto existente
+1. Extraia o ZIP.
+2. No mesmo repositório que está conectado à Vercel, substitua `public/` e `vercel.json` pelos arquivos desta pasta. Preserve arquivos extras que você tenha criado fora dessas pastas.
+3. A raiz do repositório deve conter `public/index.html` e `vercel.json`. Evite `propaga-ads/propaga-ads/public`.
+4. Faça o commit na branch de produção conectada à Vercel. A integração fará uma nova publicação.
+5. Configuração do projeto: Framework Other; sem comando de build; Output Directory public; Root Directory a pasta que contém vercel.json.
+6. Abra o endereço Vercel e confira Home, menu em celular, contato e páginas internas.
 
-## Formulário e integrações
-O formulário desta versão abre o WhatsApp com os dados preenchidos e exige que o visitante confirme o envio. Não envia email e não usa Wix Forms. Para replicar recebimento por email, será necessário configurar uma integração de envio no servidor e as credenciais privadas na Vercel. Não há Pixel ou GTM novos configurados. Antes da publicação final, revisar as tags existentes, IDs e eventos de conversão.
+## Contato
+O formulário abre o WhatsApp com uma mensagem preenchida. O visitante confirma o envio no WhatsApp. Não há envio por email, armazenamento de leads ou novo rastreamento nessa versão. O endereço de email é um link para contato direto.
 
-## Limites da primeira versão
-Home não é uma cópia pixel a pixel: estrutura fluida para celular, tipografia de sistema, espaçamentos ajustados e sem animações Wix. Páginas HTML recuperadas podem conter fontes/imagens externas; as imagens da Home foram baixadas. Os números demonstrativos de dashboard da página Performance devem ser identificados como ilustração, não resultados de cliente. Certificações e relação de clientes foram mantidas da página atual: verificar atualidade antes de publicar. Ainda não houve teste visual de navegador da versão nova.
+## Conteúdo e rotas
+- `/`: nova Home.
+- `/trafego-com-performance`: página de performance recuperada, com exemplos de dashboard identificados como ilustrativos.
+- `/e-books`: catálogo redesenhado.
+- `/ebook-publico-ideal`: página do e-book com seu checkout original.
+- `/comprador-ideal-para-corretores-de-imoveis`: página do e-book com seu checkout original.
+
+As logos usadas na Home foram obtidas do site anterior. Não foram acrescentados depoimentos ou resultados de campanhas. As páginas internas de venda mantêm o conteúdo original recuperado. Imagens usadas são locais; não há dependência de arquivos hospedados no Wix. Foto pessoal excluída do pacote.
+
+## Validação
+Verificados arquivos e links locais das cinco páginas, âncoras, IDs, sitemap, metadados estruturados e configuração Vercel. Menu e montagem da mensagem de contato foram exercitados por script, sem enviar mensagem. Contraste de botões e texto de contato ajustado. Não foi possível fazer validação visual em navegador neste ambiente; revisar a versão publicada em desktop e celular antes de trocar o domínio principal.
+
+## Referências de estrutura
+Cadastra: https://www.cadastra.com/
+Monks: https://www.monks.com/solutions/performance-media
+Composição própria para a Propaga Ads, sem copiar textos ou identidade das referências.
 
 ## Editar
-Home: public/index.html; estilos: public/style.css; comportamento: public/app.js. Páginas internas têm HTML/CSS original próprio. Os URLs antigos principais foram preservados. Para prévia local: python3 -m http.server 8000 --directory public (use .html para páginas internas na prévia; Vercel aplica cleanUrls).
-
-Atualizações enviadas à branch de produção do GitHub serão publicadas pela integração Vercel.
+Home: `public/index.html`. Catálogo: `public/e-books.html`. Cada página contém seus estilos e comportamento. `style.css` e `app.js` também estão disponíveis como fonte de referência, mas Home e catálogo não dependem deles. Se editar esses arquivos separadamente, replique a alteração nos blocos style/script do HTML correspondente.
