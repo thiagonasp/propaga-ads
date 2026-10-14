@@ -10,64 +10,330 @@
   <!-- End Google Tag Manager -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f3dfb5">
-  <meta name="description" content="Entre no Propaga na Areia e receba achados e ofertas de beach tennis, futevôlei, vôlei de praia e outros esportes na areia.">
-  <title>Propaga na Areia | Achados e ofertas para quem vive a areia</title>
+  <meta name="theme-color" content="#17120b">
+  <meta name="description" content="Entre gratuitamente no Propaga na Areia e receba achados e ofertas de Beach Tennis, futevôlei e outros esportes na areia.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.svg?v=3">
+  <title>Propaga na Areia | Ofertas para jogar mais e gastar menos</title>
   <style>
-    :root { color-scheme: light; --sand:#f3dfb5; --cream:#fffaf0; --ink:#30200f; --brown:#744300; --gold:#eaaa42; --green:#147c6d; --muted:#756b5c; }
+    :root {
+      color-scheme: light;
+      --ink:#17120b;
+      --ink-2:#241b10;
+      --sand:#f4d99d;
+      --gold:#f6bb43;
+      --lime:#caff42;
+      --cream:#fffaf0;
+      --white:#ffffff;
+      --muted:#6e6253;
+      --wa:#20b869;
+      --tg:#279bd2;
+      --line:rgba(82,54,15,.13);
+    }
+
     * { box-sizing:border-box; }
-    body { margin:0; min-height:100vh; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:radial-gradient(ellipse at 10% 10%,rgba(255,255,255,.72),transparent 34%),linear-gradient(140deg,#efdbb1 0%,#f8edda 46%,#e6c587 100%); }
-    .page { min-height:100vh; display:grid; place-items:center; padding:28px 18px; }
-    .card { width:min(100%,980px); display:grid; grid-template-columns:minmax(0, .92fr) minmax(0,1.08fr); align-items:center; overflow:hidden; border:1px solid rgba(116,67,0,.14); border-radius:30px; background:rgba(255,250,240,.9); box-shadow:0 24px 70px rgba(75,47,9,.16); }
-    .visual { padding:30px; }
-    .visual img { display:block; width:100%; aspect-ratio:1; object-fit:cover; border-radius:22px; box-shadow:0 14px 36px rgba(74,43,6,.2); }
-    .content { padding:50px clamp(28px,5vw,64px) 50px 16px; }
-    .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; color:#5c390d; background:#f6e5c5; border-radius:999px; font-size:12px; font-weight:750; letter-spacing:.08em; text-transform:uppercase; }
-    .dot { width:8px;height:8px;border-radius:50%;background:var(--green); }
-    h1 { margin:20px 0 14px; font-size:clamp(34px,5vw,54px); line-height:1.02; letter-spacing:-.045em; }
-    h1 span { color:var(--brown); }
-    .intro { max-width:420px; margin:0 0 26px; color:#5f5546; font-size:17px; line-height:1.65; }
-    .buttons { display:grid; gap:12px; }
-    .button { min-height:58px; display:flex; align-items:center; justify-content:center; gap:10px; padding:15px 20px; border-radius:14px; color:#fff; text-decoration:none; font-weight:750; font-size:16px; transition:transform .18s ease, box-shadow .18s ease; box-shadow:0 8px 18px rgba(33,52,43,.12); }
-    .button:hover { transform:translateY(-2px); box-shadow:0 12px 22px rgba(33,52,43,.18); }
-    .button:focus-visible { outline:3px solid #222; outline-offset:3px; }
-    .wa { background:#168b58; } .tg { background:#218fbd; }
-    .button svg { width:21px;height:21px;flex:none; }
-    .note { margin:18px 0 0; color:var(--muted); font-size:12px; line-height:1.55; }
-    .footer { margin-top:26px; padding-top:18px; border-top:1px solid rgba(116,67,0,.14); color:#746653; font-size:12px; line-height:1.55; }
-    @media (max-width:720px) { .page { padding:16px 12px; } .card { max-width:460px; grid-template-columns:1fr; border-radius:24px; } .visual { padding:18px 18px 0; } .visual img { max-height:300px; border-radius:18px; } .content { padding:24px 24px 28px; } h1 { margin-top:16px; font-size:38px; } .intro { font-size:15px; margin-bottom:20px; } .footer { margin-top:20px; } }
-    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; } }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      min-width:320px;
+      color:var(--ink);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:#fffaf0;
+    }
+    a { color:inherit; }
+    .shell { width:min(1160px, calc(100% - 36px)); margin-inline:auto; }
+
+    .hero {
+      position:relative;
+      overflow:hidden;
+      min-height:min(780px,100svh);
+      color:var(--white);
+      background:
+        radial-gradient(circle at 78% 32%, rgba(246,187,67,.22), transparent 31%),
+        radial-gradient(circle at 14% 88%, rgba(202,255,66,.08), transparent 28%),
+        linear-gradient(135deg,#130f09 0%,#24180b 62%,#4a2b07 100%);
+    }
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:auto -8% -120px -8%;
+      height:230px;
+      opacity:.3;
+      background:radial-gradient(ellipse at center,#f2d18e 0 3%,transparent 4%) 0 0/18px 13px;
+      transform:rotate(-2deg);
+      pointer-events:none;
+    }
+    .hero-grid {
+      position:relative;
+      z-index:1;
+      min-height:min(780px,100svh);
+      display:grid;
+      grid-template-columns:minmax(0,1.03fr) minmax(360px,.97fr);
+      align-items:center;
+      gap:clamp(42px,7vw,96px);
+      padding-block:52px;
+    }
+    .mobile-brand { display:none; }
+    .badge {
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding:9px 13px;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:999px;
+      color:#fff7df;
+      background:rgba(255,255,255,.08);
+      backdrop-filter:blur(10px);
+      font-size:12px;
+      font-weight:850;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .badge::before { content:""; width:9px; height:9px; border-radius:50%; background:var(--lime); box-shadow:0 0 0 5px rgba(202,255,66,.12); }
+    h1 {
+      max-width:680px;
+      margin:22px 0 16px;
+      font-size:clamp(44px,6.1vw,76px);
+      line-height:.98;
+      letter-spacing:-.055em;
+    }
+    h1 em { color:var(--lime); font-style:normal; }
+    .lead {
+      max-width:590px;
+      margin:0 0 24px;
+      color:#e9dfce;
+      font-size:clamp(16px,1.8vw,19px);
+      line-height:1.58;
+    }
+    .micro-benefits { display:flex; flex-wrap:wrap; gap:9px 16px; margin:0 0 23px; padding:0; list-style:none; color:#fff7e8; font-size:13px; font-weight:720; }
+    .micro-benefits li { display:flex; align-items:center; gap:7px; }
+    .micro-benefits li::before { content:"✓"; display:grid; place-items:center; width:19px; height:19px; border-radius:50%; color:#182000; background:var(--lime); font-size:12px; font-weight:950; }
+    .buttons { display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:620px; }
+    .button {
+      position:relative;
+      min-height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:11px;
+      padding:15px 18px;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:17px;
+      color:#fff;
+      text-align:center;
+      text-decoration:none;
+      font-size:15px;
+      font-weight:850;
+      box-shadow:0 14px 30px rgba(0,0,0,.2);
+      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+    .button:hover { transform:translateY(-3px); filter:saturate(1.08); box-shadow:0 18px 35px rgba(0,0,0,.28); }
+    .button:focus-visible { outline:3px solid var(--lime); outline-offset:4px; }
+    .button svg { width:24px; height:24px; flex:none; }
+    .wa { background:linear-gradient(135deg,#21bd6c,#118d4c); }
+    .tg { background:linear-gradient(135deg,#32a9df,#167db4); }
+    .under-cta { margin:13px 0 0; color:#c9bca8; font-size:12px; line-height:1.5; }
+
+    .visual { position:relative; }
+    .visual::before { content:""; position:absolute; inset:-24px; border:1px solid rgba(246,187,67,.25); border-radius:40px; transform:rotate(3deg); }
+    .visual img {
+      position:relative;
+      z-index:1;
+      display:block;
+      width:100%;
+      aspect-ratio:1;
+      object-fit:cover;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:30px;
+      box-shadow:0 34px 70px rgba(0,0,0,.42);
+    }
+    .visual-card {
+      position:absolute;
+      z-index:2;
+      right:-18px;
+      bottom:24px;
+      width:min(255px,75%);
+      padding:15px 17px;
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:16px;
+      color:#211607;
+      background:rgba(255,250,240,.94);
+      box-shadow:0 16px 35px rgba(0,0,0,.25);
+      backdrop-filter:blur(10px);
+    }
+    .visual-card strong { display:block; margin-bottom:4px; font-size:15px; }
+    .visual-card span { color:#695a45; font-size:12px; line-height:1.45; }
+
+    .content-section { padding:82px 0; }
+    .section-kicker { margin:0 0 10px; color:#8a5407; font-size:12px; font-weight:900; letter-spacing:.11em; text-transform:uppercase; }
+    h2 { max-width:700px; margin:0; font-size:clamp(31px,4.2vw,50px); line-height:1.06; letter-spacing:-.045em; }
+    .section-copy { max-width:650px; margin:15px 0 0; color:var(--muted); font-size:16px; line-height:1.7; }
+    .benefit-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:34px; }
+    .benefit { padding:24px; border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 12px 30px rgba(73,46,10,.06); }
+    .benefit-icon { display:grid; place-items:center; width:44px; height:44px; margin-bottom:16px; border-radius:13px; background:#fff0ca; font-size:22px; }
+    .benefit h3 { margin:0 0 8px; font-size:18px; }
+    .benefit p { margin:0; color:var(--muted); font-size:14px; line-height:1.6; }
+
+    .categories { padding:78px 0; color:#fff; background:var(--ink); }
+    .categories .section-kicker { color:var(--gold); }
+    .categories .section-copy { color:#cfc2af; }
+    .chips { display:flex; flex-wrap:wrap; gap:11px; margin-top:28px; }
+    .chip { padding:12px 15px; border:1px solid rgba(255,255,255,.13); border-radius:999px; color:#fff7e8; background:rgba(255,255,255,.07); font-size:13px; font-weight:760; }
+
+    .final-cta { padding:76px 0 88px; background:linear-gradient(135deg,#f7dda5,#fff7e7); }
+    .final-box { display:grid; grid-template-columns:1fr auto; align-items:center; gap:34px; padding:34px; border:1px solid rgba(104,67,13,.16); border-radius:26px; background:rgba(255,255,255,.72); box-shadow:0 18px 50px rgba(92,57,8,.1); }
+    .final-box h2 { font-size:clamp(29px,4vw,45px); }
+    .final-box p { max-width:600px; margin:12px 0 0; color:var(--muted); line-height:1.65; }
+    .final-actions { display:grid; gap:9px; width:285px; }
+    .final-actions .button { min-height:56px; box-shadow:0 10px 24px rgba(42,29,8,.14); }
+    footer { padding:24px 18px; color:#786b59; background:#fffaf0; text-align:center; font-size:11px; line-height:1.6; }
+
+    @media (max-width:840px) {
+      .shell { width:min(100% - 24px,620px); }
+      .hero { min-height:auto; }
+      .hero-grid { min-height:auto; grid-template-columns:1fr; gap:0; padding:18px 0 30px; }
+      .mobile-brand { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+      .mobile-brand img { width:72px; height:72px; object-fit:cover; border-radius:18px; box-shadow:0 10px 24px rgba(0,0,0,.28); }
+      .mobile-brand span { color:#f5d997; font-size:13px; font-weight:850; letter-spacing:.06em; text-transform:uppercase; }
+      .badge { padding:7px 10px; font-size:10px; }
+      h1 { margin:15px 0 11px; font-size:clamp(38px,11vw,56px); }
+      .lead { margin-bottom:15px; font-size:15px; line-height:1.48; }
+      .micro-benefits { margin-bottom:16px; gap:7px 13px; font-size:12px; }
+      .buttons { grid-template-columns:1fr; gap:9px; }
+      .button { min-height:56px; border-radius:14px; }
+      .under-cta { margin-top:9px; }
+      .visual { display:none; }
+      .content-section,.categories,.final-cta { padding:58px 0; }
+      .benefit-grid { grid-template-columns:1fr; }
+      .final-box { grid-template-columns:1fr; padding:25px; }
+      .final-actions { width:100%; }
+    }
+
+    @media (max-width:390px) {
+      .hero-grid { padding-top:12px; }
+      .mobile-brand { margin-bottom:11px; }
+      .mobile-brand img { width:58px; height:58px; border-radius:14px; }
+      h1 { font-size:37px; }
+      .lead { font-size:14px; }
+      .micro-benefits li:nth-child(3) { display:none; }
+      .button { min-height:53px; font-size:14px; }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { transition:none!important; }
+    }
   </style>
-<meta name="robots" content="noindex, nofollow"><link rel="icon" href="/favicon.svg?v=3"></head>
+</head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJ8TCW2J"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJ8TCW2J" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <main class="page">
-    <section class="card" aria-labelledby="title">
-      <div class="visual"><img src="/assets/propaga-na-areia.webp" alt="Logo Propaga na Areia sobre areia dourada"></div>
-      <div class="content">
-        <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Beach Tennis · Futevôlei · Vôlei de Praia</div>
-        <h1 id="title">Achados de quem vive <span>a areia.</span></h1>
-        <p class="intro">Equipamentos, acessórios e ofertas selecionadas com foco em Beach Tennis — e também achados para futevôlei, vôlei de praia e outros esportes na areia. Escolha seu canal e venha para o Propaga na Areia.</p>
-        <div class="buttons">
-          <a class="button wa" data-group-channel="whatsapp" href="https://chat.whatsapp.com/DvctjRKHqy7HxQq1Lwmc2R" target="_blank" rel="noopener noreferrer" aria-label="Entrar no grupo Propaga na Areia no WhatsApp">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.08 0C5.53 0 .2 5.32.2 11.87c0 2.1.55 4.16 1.6 5.97L.1 24l6.32-1.66a11.9 11.9 0 0 0 5.66 1.44h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.17-1.23-6.15-3.47-8.4Zm-8.42 18.27h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.98 1-3.65-.24-.38a9.88 9.88 0 1 1 8.4 4.64Zm5.42-7.4c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.46-.88-.78-1.47-1.74-1.64-2.03-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.61-.92-2.2-.24-.57-.49-.49-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.58-.35Z"/></svg>
-            Entrar no grupo do WhatsApp
-          </a>
-          <a class="button tg" data-group-channel="telegram" href="https://t.me/+PjghKRQbg7xmOGUx" target="_blank" rel="noopener noreferrer" aria-label="Entrar no canal Propaga na Areia no Telegram">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.8 2.3 18.5 21c-.25 1.32-.95 1.65-1.93 1.03l-5.35-3.94-2.58 2.49c-.29.3-.54.55-1.1.55l.39-5.45 9.92-8.97c.43-.39-.1-.6-.67-.22L4.9 15.1.1 13.6c-1.04-.32-1.06-1.04.22-1.54L19.1 4.8c.87-.32 1.63.21 1.35 1.5l-3.3 14.7c-.24 1.11-.67 1.37-1.37.85l-3.78-2.79 7.7-13.39c.34-.57-.01-.82-.42-.48L7.88 15.47l5.16 4.26 1.31 1.02 5.06-17.7c.15-.52-.2-.77-.65-.75L2.7 11.43c-.52.2-.5.52.1.7l4.9 1.53 11.4-7.2c.54-.35 1.05-.18.6.22l-9.3 8.49.29 4.2 2.58-2.49 5.35 3.94c.98.62 1.68.29 1.93-1.03L23.8 2.3c.26-1.48-.55-2.15-2-1.6Z"/></svg>
-            Entrar no canal do Telegram
-          </a>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div class="hero-content">
+          <div class="mobile-brand">
+            <img src="/assets/propaga-na-areia.webp" alt="Propaga na Areia">
+            <span>Propaga na Areia</span>
+          </div>
+          <div class="badge">Grupo 100% gratuito</div>
+          <h1 id="hero-title">Jogue mais.<br><em>Gaste menos.</em></h1>
+          <p class="lead">Receba achados e ofertas de Beach Tennis diretamente no WhatsApp ou Telegram — além de oportunidades para futevôlei e outros esportes na areia.</p>
+          <ul class="micro-benefits" aria-label="Benefícios do grupo">
+            <li>Entrada gratuita</li>
+            <li>Ofertas selecionadas</li>
+            <li>Sem obrigação de compra</li>
+          </ul>
+          <div class="buttons" aria-label="Escolha onde receber as ofertas">
+            <a class="button wa" data-group-channel="whatsapp" href="https://chat.whatsapp.com/DvctjRKHqy7HxQq1Lwmc2R" target="_blank" rel="noopener noreferrer" aria-label="Entrar gratuitamente no grupo Propaga na Areia no WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.08 0C5.53 0 .2 5.32.2 11.87c0 2.1.55 4.16 1.6 5.97L.1 24l6.32-1.66a11.9 11.9 0 0 0 5.66 1.44h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.17-1.23-6.15-3.47-8.4Zm-8.42 18.27h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.98 1-3.65-.24-.38a9.88 9.88 0 1 1 8.4 4.64Zm5.42-7.4c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.46-.88-.78-1.47-1.74-1.64-2.03-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.61-.92-2.2-.24-.57-.49-.49-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.58-.35Z"/></svg>
+              Entrar pelo WhatsApp
+            </a>
+            <a class="button tg" data-group-channel="telegram" href="https://t.me/+PjghKRQbg7xmOGUx" target="_blank" rel="noopener noreferrer" aria-label="Entrar gratuitamente no canal Propaga na Areia no Telegram">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.8 2.3 18.5 21c-.25 1.32-.95 1.65-1.93 1.03l-5.35-3.94-2.58 2.49c-.29.3-.54.55-1.1.55l.39-5.45 9.92-8.97c.43-.39-.1-.6-.67-.22L4.9 15.1.1 13.6c-1.04-.32-1.06-1.04.22-1.54L19.1 4.8c.87-.32 1.63.21 1.35 1.5l-3.3 14.7c-.24 1.11-.67 1.37-1.37.85l-3.78-2.79 7.7-13.39c.34-.57-.01-.82-.42-.48L7.88 15.47l5.16 4.26 1.31 1.02 5.06-17.7c.15-.52-.2-.77-.65-.75L2.7 11.43c-.52.2-.5.52.1.7l4.9 1.53 11.4-7.2c.54-.35 1.05-.18.6.22l-9.3 8.49.29 4.2 2.58-2.49 5.35 3.94c.98.62 1.68.29 1.93-1.03L23.8 2.3c.26-1.48-.55-2.15-2-1.6Z"/></svg>
+              Entrar pelo Telegram
+            </a>
+          </div>
+          <p class="under-cta">Escolha o canal que você mais usa. Você pode sair quando quiser.</p>
         </div>
-        <p class="note">Entre pelo canal que você mais usa. As ofertas podem mudar de preço ou acabar conforme o estoque.</p>
-        <div class="footer">O Propaga na Areia é um canal independente de curadoria. Alguns links podem ser afiliados; podemos receber comissão por compras realizadas por eles, sem custo adicional para você.</div>
+
+        <div class="visual" aria-hidden="true">
+          <img src="/assets/propaga-na-areia.webp" alt="">
+          <div class="visual-card">
+            <strong>Beach Tennis primeiro 🎾</strong>
+            <span>Equipamentos, roupas, acessórios, suplementos e muito mais.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="shell">
+        <p class="section-kicker">Por que entrar?</p>
+        <h2>Antes de comprar, passe pelo grupo.</h2>
+        <p class="section-copy">O Propaga na Areia reúne oportunidades para facilitar sua busca por produtos e ajudar você a comparar antes de decidir.</p>
+        <div class="benefit-grid">
+          <article class="benefit">
+            <div class="benefit-icon" aria-hidden="true">🔎</div>
+            <h3>Achados selecionados</h3>
+            <p>Reunimos produtos e ofertas ligadas à rotina de quem pratica esportes na areia.</p>
+          </article>
+          <article class="benefit">
+            <div class="benefit-icon" aria-hidden="true">📲</div>
+            <h3>Direto no seu canal</h3>
+            <p>Escolha entre WhatsApp e Telegram para acompanhar do jeito mais prático.</p>
+          </article>
+          <article class="benefit">
+            <div class="benefit-icon" aria-hidden="true">✅</div>
+            <h3>Você decide</h3>
+            <p>O acesso é gratuito e não existe obrigação de aproveitar nenhuma oferta.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories">
+      <div class="shell">
+        <p class="section-kicker">O que pode aparecer por lá</p>
+        <h2>Do treino ao pós-jogo.</h2>
+        <p class="section-copy">Beach Tennis é o foco principal, sem deixar de lado futevôlei, vôlei de praia e a vida esportiva na areia.</p>
+        <div class="chips" aria-label="Categorias de produtos">
+          <span class="chip">Raquetes</span>
+          <span class="chip">Bolas</span>
+          <span class="chip">Tênis</span>
+          <span class="chip">Mochilas</span>
+          <span class="chip">Overgrips</span>
+          <span class="chip">Roupas</span>
+          <span class="chip">Protetor solar</span>
+          <span class="chip">Whey e creatina</span>
+          <span class="chip">Acessórios</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="shell final-box">
+        <div>
+          <p class="section-kicker">Grupo gratuito</p>
+          <h2>Vem para o Propaga na Areia.</h2>
+          <p>Entre agora no canal de sua preferência e acompanhe os próximos achados. As ofertas podem mudar de preço ou acabar conforme o estoque.</p>
+        </div>
+        <div class="final-actions">
+          <a class="button wa" data-group-channel="whatsapp" href="https://chat.whatsapp.com/DvctjRKHqy7HxQq1Lwmc2R" target="_blank" rel="noopener noreferrer">Entrar pelo WhatsApp</a>
+          <a class="button tg" data-group-channel="telegram" href="https://t.me/+PjghKRQbg7xmOGUx" target="_blank" rel="noopener noreferrer">Entrar pelo Telegram</a>
+        </div>
       </div>
     </section>
   </main>
+
+  <footer>O Propaga na Areia é um canal independente de curadoria. Alguns links podem ser de afiliados e gerar comissão, sem custo adicional para você.</footer>
+
   <script>
     (function () {
+      window.dataLayer = window.dataLayer || [];
+
       function attributionData() {
         var params = new URLSearchParams(window.location.search);
         return {
@@ -81,21 +347,19 @@
         };
       }
 
-      window.dataLayer.push(Object.assign({
-        event: 'landing_page_view'
-      }, attributionData()));
+      window.dataLayer.push(Object.assign({ event: 'landing_page_view' }, attributionData()));
 
       document.querySelectorAll('[data-group-channel]').forEach(function (link) {
         link.addEventListener('click', function () {
           var channel = link.getAttribute('data-group-channel');
-
-          window.dataLayer.push(Object.assign({
-            event: channel + '_group_click',
+          var eventData = Object.assign({
             event_category: 'group_entry',
             event_label: channel,
             group_channel: channel,
             link_url: link.href
-          }, attributionData()));
+          }, attributionData());
+
+          window.dataLayer.push(Object.assign({ event: channel + '_group_click' }, eventData));
         });
       });
     })();
