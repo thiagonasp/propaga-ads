@@ -68,23 +68,14 @@
       min-height:720px;
       padding:48px 0 60px;
     }
-    .logo-placeholder {
-      width:235px;
-      min-height:92px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:7px;
+    .brand-logo {
+      display:block;
+      width:225px;
+      max-width:55vw;
+      height:auto;
       margin-bottom:36px;
-      border:1px dashed rgba(255,255,255,.55);
-      border-radius:15px;
-      color:#fff;
-      background:rgba(255,255,255,.07);
-      backdrop-filter:blur(8px);
+      object-fit:contain;
     }
-    .logo-placeholder strong { font-size:19px; letter-spacing:.08em; }
-    .logo-placeholder span { color:rgba(255,255,255,.68); font-size:10px; letter-spacing:.14em; text-transform:uppercase; }
     .eyebrow {
       display:inline-flex;
       align-items:center;
@@ -247,7 +238,7 @@
     @media (max-width:860px) {
       .hero-inner { grid-template-columns:1fr; gap:38px; padding:30px 0 55px; }
       .hero-content { text-align:center; }
-      .logo-placeholder { margin:0 auto 28px; }
+      .brand-logo { margin:0 auto 28px; }
       .hero-copy { margin-inline:auto; }
       .cta { margin-inline:auto; }
       .full-groups { margin-inline:auto; }
@@ -263,7 +254,7 @@
     @media (max-width:560px) {
       .wrap { width:min(100% - 28px,500px); }
       .hero { min-height:auto; }
-      .logo-placeholder { width:205px; min-height:76px; margin-bottom:23px; }
+      .brand-logo { width:185px; margin-bottom:23px; }
       h1 { font-size:41px; }
       .hero-copy { margin:18px auto 23px; font-size:16px; }
       .cta { min-height:62px; padding:15px 18px; font-size:14px; }
@@ -288,10 +279,7 @@
     <section class="hero">
       <div class="wrap hero-inner">
         <div class="hero-content">
-          <div class="logo-placeholder" aria-label="Espaço reservado para a logo Propaga a Pesca">
-            <strong>PROPAGA A PESCA</strong>
-            <span>logo será inserida aqui</span>
-          </div>
+          <img class="brand-logo" src="/assets/propaga-a-pesca-logo.png" alt="Propaga a Pesca">
           <p class="eyebrow">🎣 Comunidade gratuita no WhatsApp</p>
           <h1>As melhores ofertas para quem <em>ama pescar.</em></h1>
           <p class="hero-copy">Varas, molinetes, carretilhas, iscas, linhas, vestuário e acessórios selecionados para você economizar sem perder tempo procurando.</p>
