@@ -52,8 +52,7 @@
     .video-section{background:var(--cream)}
     .video-layout{display:grid;grid-template-columns:minmax(270px,370px) minmax(0,1fr);gap:80px;align-items:center}
     .video-frame{position:relative;overflow:hidden;border:7px solid #fff;border-radius:30px;background:#0d1915;box-shadow:0 24px 55px rgba(31,56,46,.2)}
-    .video-frame video{display:block;width:100%;height:auto;aspect-ratio:450/896;object-fit:cover}
-    .demo-label{position:absolute;left:12px;right:12px;bottom:12px;padding:9px 12px;border-radius:10px;color:#fff;background:rgba(7,40,31,.84);font-size:10px;font-weight:800;text-align:center;letter-spacing:.03em;backdrop-filter:blur(8px)}
+    .video-frame video{display:block;width:100%;height:auto;aspect-ratio:360/780;object-fit:cover}
     .video-copy .eyebrow{color:var(--red)}
     .video-copy p{margin:18px 0 26px;color:var(--muted);font-size:17px;line-height:1.68}
     .checklist{display:grid;gap:13px;margin:0;padding:0;list-style:none}
@@ -109,10 +108,9 @@
     <section class="section video-section">
       <div class="wrap video-layout">
         <div class="video-frame">
-          <video autoplay muted loop playsinline preload="metadata" poster="/assets/propaga-o-natal-conceito.webp">
-            <source src="/assets/propaga-a-pesca-grupo-demo.mp4" type="video/mp4">
+          <video autoplay muted loop playsinline preload="metadata" poster="/assets/propaga-o-natal-grupo-demo-poster.jpg">
+            <source src="/assets/propaga-o-natal-grupo-demo.mp4" type="video/mp4">
           </video>
-          <div class="demo-label">Vídeo demonstrativo temporário • será substituído pela gravação do Propaga o Natal</div>
         </div>
         <div class="video-copy"><span class="eyebrow">Simples e rápido</span><h2>As ofertas chegam até você.</h2><p>Você entra no grupo, acompanha os produtos selecionados e só abre aquilo que realmente interessar. Sem mensalidade e sem compromisso.</p><ul class="checklist"><li>Ofertas organizadas no WhatsApp</li><li>Produtos para decoração e presentes</li><li>Links práticos para conferir e comprar</li><li>Você pode sair quando quiser</li></ul></div>
       </div>
