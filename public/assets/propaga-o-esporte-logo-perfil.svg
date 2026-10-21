@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" role="img" aria-labelledby="title">
+  <title id="title">Propaga o Esporte</title>
+  <defs><radialGradient id="bg" cx="30%" cy="20%"><stop offset="0" stop-color="#123B63"/><stop offset="1" stop-color="#061527"/></radialGradient></defs>
+  <rect width="1080" height="1080" rx="170" fill="url(#bg)"/>
+  <path d="M0 780c270-80 500 60 1080-90v390H0Z" fill="#B7F52A" opacity=".08"/>
+  <g transform="translate(105 330)">
+    <text x="435" y="250" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-size="205" font-weight="900" letter-spacing="-15" fill="#FFFFFF">PROPAGA</text>
+    <rect x="215" y="300" width="440" height="92" rx="46" fill="#B7F52A"/>
+    <text x="435" y="362" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="49" font-weight="900" letter-spacing="6" fill="#061527">O ESPORTE</text>
+    <path d="M78 430h710" stroke="#B7F52A" stroke-width="15" stroke-linecap="round" opacity=".45"/>
+    <path d="M165 475h540" stroke="#B7F52A" stroke-width="15" stroke-linecap="round"/>
+  </g>
+</svg>
