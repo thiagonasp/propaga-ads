@@ -1,14 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 260" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" role="img" aria-labelledby="title desc">
   <title id="title">Propaga o Esporte</title>
   <desc id="desc">Logotipo Propaga o Esporte em branco e verde-limão</desc>
-  <g fill="none" fill-rule="evenodd" transform="translate(16 18)">
-    <path d="M16 177h58" stroke="#B7F52A" stroke-width="12" stroke-linecap="round" opacity=".38"/>
-    <path d="M6 202h82" stroke="#B7F52A" stroke-width="12" stroke-linecap="round" opacity=".7"/>
-    <path d="M28 227h55" stroke="#B7F52A" stroke-width="12" stroke-linecap="round"/>
-    <text x="95" y="208" font-family="Arial Black,Arial,Helvetica,sans-serif" font-size="182" font-weight="900" letter-spacing="-12" fill="#FFFFFF">PROPAGA</text>
-    <path d="M96 38h145" stroke="#B7F52A" stroke-width="9" stroke-linecap="round"/>
-    <rect x="552" y="0" width="354" height="58" rx="29" fill="#B7F52A"/>
-    <text x="729" y="39" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="900" letter-spacing="5" fill="#061527">O ESPORTE</text>
-    <circle cx="932" cy="29" r="11" fill="#B7F52A"/>
+  <g fill="none" fill-rule="evenodd">
+    <path d="M72 94h125" stroke="#B7F52A" stroke-width="11" stroke-linecap="round"/>
+    <text x="500" y="208" text-anchor="middle" textLength="850" lengthAdjust="spacingAndGlyphs" font-family="Arial Black,Arial,Helvetica,sans-serif" font-size="176" font-weight="900" fill="#FFFFFF">PROPAGA</text>
+    <rect x="329" y="229" width="342" height="58" rx="29" fill="#B7F52A"/>
+    <text x="500" y="268" text-anchor="middle" textLength="235" lengthAdjust="spacing" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="900" fill="#061527">O ESPORTE</text>
   </g>
 </svg>
