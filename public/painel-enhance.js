@@ -164,15 +164,18 @@
         return;
       }
 
-      state = {
+      const remoteState = {
         groups: Array.isArray(data.groups) && data.groups.length ? data.groups : [...defaults],
         events: remoteEvents
       };
+      const hadLegacyNames = remoteState.groups.some(group => GROUP_RENAMES[group]) || remoteState.events.some(event => GROUP_RENAMES[event.group]);
+      state = normalizeGroupNames(remoteState);
       remoteUpdatedAt = data.updatedAt || '';
       localStorage.setItem(MIGRATION_KEY, '1');
       localPersist();
       render();
-      setSyncStatus('Sincronizado', 'ok');
+      if (hadLegacyNames) await pushRemote(true);
+      else setSyncStatus('Sincronizado', 'ok');
     } catch (err) {
       const msg = String(err?.message || err);
       if (/storage_not_configured|storage|blob|token|store|configured/i.test(msg)) setSyncStatus('Conecte o Vercel Blob', 'err');

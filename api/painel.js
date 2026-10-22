@@ -37,7 +37,7 @@ function loginPage(hasError = false) {
 
 function panelPage() {
   const html = fs.readFileSync(path.join(process.cwd(), 'private', 'painel.html'), 'utf8');
-  return html.replace('</body>', '<script src="/painel-enhance.js?v=20261022-5"></script></body>');
+  return html.replace('</body>', '<script src="/painel-enhance.js?v=20261022-6"></script></body>');
 }
 
 module.exports = function handler(req, res) {
