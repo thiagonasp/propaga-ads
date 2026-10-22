@@ -3,6 +3,7 @@
   "trailingSlash": false,
   "outputDirectory": "public",
   "rewrites": [
+    { "source": "/painel/dados", "destination": "/api/painel-data" },
     { "source": "/painel", "destination": "/api/painel" }
   ],
   "functions": {
