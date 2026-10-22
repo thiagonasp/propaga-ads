@@ -27,6 +27,11 @@ function cleanState(value) {
   return { groups, events, updatedAt: new Date().toISOString() };
 }
 
+function storageError(err) {
+  const message = String(err?.message || '');
+  return /blob|store|token|oidc|storage|credential/i.test(message);
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
@@ -37,14 +42,9 @@ module.exports = async function handler(req, res) {
     return res.end(JSON.stringify({ error: 'unauthorized' }));
   }
 
-  if (!process.env.BLOB_READ_WRITE_TOKEN) {
-    res.statusCode = 503;
-    return res.end(JSON.stringify({ error: 'storage_not_configured' }));
-  }
-
   if (req.method === 'GET') {
     try {
-      const result = await get(STATE_PATH, { access: 'private' });
+      const result = await get(STATE_PATH, { access: 'private', useCache: false });
       if (!result) return res.end(JSON.stringify({ groups: [], events: [], empty: true }));
       const text = await new Response(result.stream).text();
       const data = JSON.parse(text);
@@ -53,8 +53,8 @@ module.exports = async function handler(req, res) {
       if (err?.status === 404 || err?.statusCode === 404 || /not found/i.test(String(err?.message || ''))) {
         return res.end(JSON.stringify({ groups: [], events: [], empty: true }));
       }
-      res.statusCode = 500;
-      return res.end(JSON.stringify({ error: 'read_failed', message: err.message }));
+      res.statusCode = storageError(err) ? 503 : 500;
+      return res.end(JSON.stringify({ error: storageError(err) ? 'storage_not_configured' : 'read_failed', message: err.message }));
     }
   }
 
@@ -70,8 +70,8 @@ module.exports = async function handler(req, res) {
       });
       return res.end(JSON.stringify({ ok: true, updatedAt: state.updatedAt }));
     } catch (err) {
-      res.statusCode = 500;
-      return res.end(JSON.stringify({ error: 'write_failed', message: err.message }));
+      res.statusCode = storageError(err) ? 503 : 500;
+      return res.end(JSON.stringify({ error: storageError(err) ? 'storage_not_configured' : 'write_failed', message: err.message }));
     }
   }
 
