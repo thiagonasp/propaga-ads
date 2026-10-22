@@ -1,9 +1,11 @@
 (() => {
   const DATA_URL = '/painel/dados';
+  const MIGRATION_KEY = 'propagaCentralMigratedV1';
   let dateFrom = '';
   let dateTo = '';
   let syncTimer = null;
   let syncing = false;
+  let remoteUpdatedAt = '';
 
   function addStyles() {
     const style = document.createElement('style');
@@ -122,7 +124,7 @@
     const memberships = new Map();
     for (const e of rows) memberships.set(`${e.group}|${String(e.person||'').toLowerCase()}`, e);
     const activePeople = new Map();
-    for (const [key, e] of memberships) {
+    for (const e of memberships.values()) {
       if (e.type !== 'entrada') continue;
       const personKey = String(e.person || '').toLowerCase();
       if (!activePeople.has(personKey)) activePeople.set(personKey, e.person);
@@ -205,8 +207,23 @@
     localStorage.setItem(KEY, JSON.stringify(state));
   }
 
+  function newestStamp(events) {
+    let newest = '';
+    for (const e of events || []) {
+      const s = stamp(e);
+      if (s > newest) newest = s;
+    }
+    return newest;
+  }
+
+  function localLooksNewer(remoteEvents) {
+    const localEvents = Array.isArray(state.events) ? state.events : [];
+    if (localEvents.length > remoteEvents.length) return true;
+    return localEvents.length === remoteEvents.length && newestStamp(localEvents) > newestStamp(remoteEvents);
+  }
+
   async function pushRemote(immediate = false) {
-    if (syncing && !immediate) return;
+    if (syncing && !immediate) return false;
     syncing = true;
     setSyncStatus('Salvando…');
     try {
@@ -219,6 +236,8 @@
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || data.message || `HTTP ${response.status}`);
+      remoteUpdatedAt = data.updatedAt || remoteUpdatedAt;
+      localStorage.setItem(MIGRATION_KEY, '1');
       setSyncStatus('Sincronizado', 'ok');
       return true;
     } catch (err) {
@@ -232,7 +251,6 @@
     }
   }
 
-  const baseSave = save;
   save = function() {
     localPersist();
     clearTimeout(syncTimer);
@@ -240,11 +258,15 @@
   };
 
   async function pullRemote(manual = false) {
+    if (syncing) return;
     setSyncStatus('Sincronizando…');
     try {
       const response = await fetch(DATA_URL, {credentials:'same-origin', cache:'no-store'});
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || data.message || `HTTP ${response.status}`);
+
+      const remoteEvents = Array.isArray(data.events) ? cleanLegacyDuplicates(data.events) : [];
+      const migrated = localStorage.getItem(MIGRATION_KEY) === '1';
 
       if (data.empty) {
         if (state.events.length) {
@@ -252,15 +274,29 @@
           const ok = await pushRemote(true);
           if (ok) setSyncStatus('Base enviada ao servidor', 'ok');
         } else {
+          localStorage.setItem(MIGRATION_KEY, '1');
           setSyncStatus('Base central vazia', 'ok');
         }
         return;
       }
 
+      if (!migrated && localLooksNewer(remoteEvents)) {
+        const ok = await pushRemote(true);
+        if (ok) setSyncStatus('Base deste aparelho enviada', 'ok');
+        return;
+      }
+
+      if (data.updatedAt && data.updatedAt === remoteUpdatedAt) {
+        setSyncStatus('Sincronizado', 'ok');
+        return;
+      }
+
       state = {
         groups: Array.isArray(data.groups) && data.groups.length ? data.groups : [...defaults],
-        events: Array.isArray(data.events) ? cleanLegacyDuplicates(data.events) : []
+        events: remoteEvents
       };
+      remoteUpdatedAt = data.updatedAt || '';
+      localStorage.setItem(MIGRATION_KEY, '1');
       localPersist();
       render();
       setSyncStatus('Sincronizado', 'ok');
@@ -278,4 +314,7 @@
   setupSyncUi();
   render();
   pullRemote(false);
+  setInterval(() => pullRemote(false), 15000);
+  window.addEventListener('focus', () => pullRemote(false));
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) pullRemote(false); });
 })();
