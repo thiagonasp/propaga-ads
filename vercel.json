@@ -1,1 +1,11 @@
-{"cleanUrls":true,"trailingSlash":false,"outputDirectory":"public"}
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "outputDirectory": "public",
+  "rewrites": [
+    { "source": "/painel", "destination": "/api/painel" }
+  ],
+  "functions": {
+    "api/painel.js": { "includeFiles": "private/painel.html" }
+  }
+}
