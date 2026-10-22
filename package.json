@@ -2,6 +2,6 @@
   "name": "propaga-ads",
   "private": true,
   "dependencies": {
-    "@vercel/functions": "latest"
+    "@vercel/blob": "latest"
   }
 }
