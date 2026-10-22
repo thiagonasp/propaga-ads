@@ -60,7 +60,7 @@ module.exports = function handler(req, res) {
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
       return res.end(loginPage(true));
     }
-    res.setHeader('Set-Cookie', `${COOKIE}=${sessionToken()}; Path=/painel; HttpOnly; Secure; SameSite=Strict; Max-Age=86400`);
+    res.setHeader('Set-Cookie', `${COOKIE}=${sessionToken()}; Path=/painel; HttpOnly; Secure; SameSite=Strict; Max-Age=2592000`);
     res.statusCode = 303;
     res.setHeader('Location', '/painel');
     return res.end();
