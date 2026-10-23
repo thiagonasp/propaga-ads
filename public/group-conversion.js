@@ -27,7 +27,7 @@
 
   pushEvent('landing_page_view');
   document.querySelectorAll(selector).forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', event => {\n      event.preventDefault();
       const conversionData = {
         event_category: 'group_entry',
         event_label: 'whatsapp',
