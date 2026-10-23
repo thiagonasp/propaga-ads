@@ -27,7 +27,8 @@
 
   pushEvent('landing_page_view');
   document.querySelectorAll(selector).forEach(link => {
-    link.addEventListener('click', event => {\n      event.preventDefault();
+    link.addEventListener('click', event => {
+      event.preventDefault();
       const conversionData = {
         event_category: 'group_entry',
         event_label: 'whatsapp',
@@ -43,6 +44,7 @@
           lead_type: 'whatsapp_group_click'
         });
       }
+      window.setTimeout(() => window.location.assign(link.href), 180);
     });
   });
 
