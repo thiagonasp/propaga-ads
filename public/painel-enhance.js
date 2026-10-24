@@ -105,7 +105,7 @@
         headers: {'Content-Type':'application/json'},
         credentials: 'same-origin',
         cache: 'no-store',
-        body: JSON.stringify({groups: state.groups, events: state.events})
+        body: JSON.stringify({groups: state.groups, events: state.events, hiddenGroups: state.hiddenGroups})
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || data.message || `HTTP ${response.status}`);
@@ -166,7 +166,8 @@
 
       const remoteState = {
         groups: Array.isArray(data.groups) && data.groups.length ? data.groups : [...defaults],
-        events: remoteEvents
+        events: remoteEvents,
+        hiddenGroups: data.hiddenGroups
       };
       const hadLegacyNames = remoteState.groups.some(group => GROUP_RENAMES[group]) || remoteState.events.some(event => GROUP_RENAMES[event.group]);
       state = normalizeGroupNames(remoteState);
