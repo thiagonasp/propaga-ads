@@ -7,16 +7,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#092923">
-  <meta name="description" content="Escolha seu grupo Propaga Promo e receba gratuitamente ofertas selecionadas de esporte, Beach Tennis, pesca e Natal direto no WhatsApp.">
+  <meta name="description" content="Entre no Propaga Promo e receba ofertas selecionadas para casa, cozinha, organização, utilidades e muito mais direto no WhatsApp.">
   <link rel="canonical" href="https://www.propagaads.com.br/propaga-promo">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
-  <meta property="og:title" content="Propaga Promo | Escolha seu grupo de ofertas">
-  <meta property="og:description" content="Grupos gratuitos com ofertas selecionadas para os seus interesses.">
+  <meta property="og:title" content="Propaga Promo | Ofertas para casa e muito mais">
+  <meta property="og:description" content="Entre gratuitamente no grupo principal da Propaga Promo e receba ofertas selecionadas direto no WhatsApp.">
   <meta property="og:url" content="https://www.propagaads.com.br/propaga-promo">
-  <meta property="og:image" content="https://www.propagaads.com.br/assets/propaga-o-beach.png">
-  <title>Propaga Promo | Grupos gratuitos de ofertas</title>
+  <meta property="og:image" content="https://www.propagaads.com.br/assets/propaga-promo-grupo.webp">
+  <title>Propaga Promo | Ofertas para casa e muito mais</title>
   <style>
     :root{--bg:#071b18;--surface:#0d2b26;--surface-2:#123832;--ink:#f6f2e9;--muted:#a9bbb5;--brand:#38d4bb;--brand-dark:#16a890;--whatsapp:#25d366;--line:rgba(255,255,255,.10);--shadow:0 24px 65px rgba(0,0,0,.34)}
     *{box-sizing:border-box}
@@ -33,23 +33,40 @@
     .lead{max-width:650px;margin:19px auto 0;color:var(--muted);font-size:17px;line-height:1.66}
     .free-pill{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:9px 13px;border:1px solid rgba(105,224,204,.25);border-radius:999px;color:#bbf4ea;background:rgba(56,212,187,.08);font-size:12px;font-weight:800}
     .free-pill:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--whatsapp);box-shadow:0 0 0 5px rgba(37,211,102,.12)}
-    .groups{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;padding:18px 0 60px}
-    .card{--accent:#38d4bb;position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:455px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.045);box-shadow:0 15px 38px rgba(0,0,0,.22);transition:transform .24s ease,border-color .24s ease,background .24s ease}
-    .card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--accent) 48%,transparent)}
+    .featured{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(300px,.82fr) minmax(0,1.18fr);max-width:1040px;margin:18px auto 58px;border:1px solid rgba(104,223,204,.28);border-radius:30px;background:linear-gradient(135deg,rgba(56,212,187,.16),rgba(255,255,255,.055));box-shadow:var(--shadow)}
+    .featured:before{content:"";position:absolute;right:-120px;bottom:-180px;width:420px;height:420px;border-radius:50%;background:rgba(56,212,187,.11);filter:blur(2px)}
+    .featured-visual{position:relative;min-height:430px;background:#fff}
+    .featured-visual img{width:100%;height:100%;display:block;object-fit:cover}
+    .featured-copy{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:48px}
+    .featured-copy .kicker{color:#7ce9d7;font-size:11px}
+    .featured-copy h2{max-width:560px;margin:0;font-size:clamp(34px,4.2vw,52px);line-height:1.02;letter-spacing:-.045em}
+    .featured-copy h2 em{color:#68dfcc;font-style:normal}
+    .featured-copy .description{max-width:570px;margin:18px 0;color:#c0cfca;font-size:16px;line-height:1.65}
+    .featured .chips{margin-bottom:24px}
+    .featured .chips span{padding:7px 10px;font-size:10px}
+    .featured .button{min-height:60px;border-radius:15px;font-size:13px}
+    .section-heading{margin:0 0 20px;text-align:center}
+    .section-heading span{display:block;margin-bottom:8px;color:#76e4d2;font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+    .section-heading h2{margin:0;font-size:clamp(25px,3.4vw,36px);letter-spacing:-.035em}
+    .section-heading p{margin:9px auto 0;color:var(--muted);font-size:13px}
+    .groups{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;padding:0 0 50px}
+    .card{--accent:#38d4bb;position:relative;overflow:hidden;display:grid;grid-template-columns:86px minmax(0,1fr);align-items:center;min-height:154px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.045);box-shadow:0 12px 30px rgba(0,0,0,.18);transition:transform .24s ease,border-color .24s ease,background .24s ease}
+    .card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 48%,transparent);background:rgba(255,255,255,.065)}
     .card.sport{--accent:#b7f52a}.card.beach{--accent:#ffc25b}.card.pesca{--accent:#53c6bd}.card.natal{--accent:#e1b953}
-    .visual{position:relative;height:165px;overflow:hidden;background:#17342e}
-    .visual:after{content:"";position:absolute;inset:auto 0 0;height:52%;background:linear-gradient(transparent,rgba(7,27,24,.94))}
+    .visual{position:relative;width:86px;height:100%;min-height:154px;overflow:hidden;background:#17342e}
+    .visual:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 45%,rgba(7,27,24,.5))}
     .visual img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .45s ease}
-    .card:hover .visual img{transform:scale(1.035)}
+    .card:hover .visual img{transform:scale(1.045)}
     .status{position:absolute;z-index:1;top:11px;left:11px;display:inline-flex;align-items:center;gap:6px;padding:7px 9px;border:1px solid rgba(255,255,255,.18);border-radius:999px;color:#fff;background:rgba(5,20,17,.74);backdrop-filter:blur(10px);font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
     .status:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--whatsapp);box-shadow:0 0 0 4px rgba(37,211,102,.14)}
-    .content{display:flex;flex:1;flex-direction:column;padding:0 17px 18px}
-    .icon{position:relative;z-index:2;width:44px;height:44px;display:grid;place-items:center;margin:-22px 0 13px;border:4px solid #0b2521;border-radius:13px;background:var(--accent);box-shadow:0 9px 20px rgba(0,0,0,.2);font-size:21px}
+    .content{display:flex;min-width:0;flex-direction:column;padding:14px 13px}
+    .icon{display:none}
     .kicker{margin:0 0 7px;color:var(--accent);font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
-    .card h2{margin:0;font-family:Inter,Montserrat,ui-sans-serif,system-ui,sans-serif;font-size:22px;font-weight:850;line-height:1.08;letter-spacing:-.025em}
-    .description{margin:10px 0 13px;color:var(--muted);font-size:12px;line-height:1.48}
+    .card h2{margin:0;font-family:Inter,Montserrat,ui-sans-serif,system-ui,sans-serif;font-size:17px;font-weight:850;line-height:1.08;letter-spacing:-.025em}
+    .description{margin:7px 0 10px;color:var(--muted);font-size:10px;line-height:1.4}
     .chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:15px}
     .chips span{padding:5px 7px;border:1px solid var(--line);border-radius:999px;color:#d7e1dd;background:rgba(255,255,255,.035);font-size:9px;font-weight:750}
+    .card .chips{display:none}
     .actions{display:grid;gap:7px;margin-top:auto}
     .button{min-height:43px;display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 11px;border-radius:11px;font-size:10px;font-weight:900;line-height:1.25;text-align:center;text-decoration:none;text-transform:uppercase;transition:transform .18s ease,filter .18s ease}
     .button:hover{transform:translateY(-2px);filter:brightness(1.07)}
@@ -58,8 +75,8 @@
     .button svg{width:20px;height:20px;flex:none}
     .note{padding:0 0 58px;color:#80938d;text-align:center;font-size:12px;line-height:1.6}
     footer{padding:27px 20px;border-top:1px solid var(--line);color:#78908a;text-align:center;font-size:11px;line-height:1.7}
-    @media(max-width:1060px){.groups{grid-template-columns:repeat(2,minmax(0,1fr));max-width:780px;margin-inline:auto}.visual{height:205px}.card{min-height:465px}}
-    @media(max-width:640px){.shell{width:min(100% - 22px,480px)}.hero{padding-top:34px}.brand{width:min(335px,84vw);margin-bottom:19px}h1{font-size:38px}.lead{font-size:14px}.groups{grid-template-columns:1fr;padding-top:10px;gap:13px}.card{display:grid;grid-template-columns:116px 1fr;min-height:0;border-radius:16px}.visual{height:100%;min-height:250px}.visual:after{height:100%;background:linear-gradient(90deg,transparent,rgba(7,27,24,.65))}.status{display:none}.content{padding:15px}.icon{margin:0 0 11px;border-color:#0b2521}.description{font-size:11px}.chips{margin-bottom:12px}.button{min-height:40px;font-size:9px}}
+    @media(max-width:1060px){.featured{grid-template-columns:330px minmax(0,1fr)}.featured-copy{padding:38px}.groups{grid-template-columns:repeat(2,minmax(0,1fr));max-width:790px;margin-inline:auto}}
+    @media(max-width:720px){.shell{width:min(100% - 22px,480px)}.hero{padding:34px 0 25px}.brand{width:min(335px,84vw);margin-bottom:19px}h1{font-size:38px}.lead{font-size:14px}.featured{grid-template-columns:1fr;margin-top:8px;margin-bottom:45px;border-radius:23px}.featured-visual{min-height:0;aspect-ratio:1/1}.featured-copy{padding:27px 22px 24px}.featured-copy h2{font-size:34px}.featured-copy .description{font-size:14px}.featured .button{min-height:56px;font-size:11px}.groups{grid-template-columns:1fr;padding-top:0;gap:11px}.card{grid-template-columns:105px 1fr;min-height:138px;border-radius:16px}.visual{width:105px;min-height:138px}.status{display:none}.content{padding:13px 14px}.card h2{font-size:18px}.description{font-size:11px}.button{min-height:41px;font-size:9px}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
 </head>
@@ -70,24 +87,42 @@
       <a class="brand" href="https://www.propagaads.com.br/" aria-label="Propaga Promo">
         <img src="/assets/propaga-promo-logo.png" width="1570" height="214" alt="Propaga Promo">
       </a>
-      <p class="eyebrow">Escolha o que combina com você</p>
-      <h1>As melhores ofertas, no grupo <em>certo para você.</em></h1>
-      <p class="lead">Entre gratuitamente nos grupos que mais interessam e receba uma seleção de promoções direto no WhatsApp.</p>
+      <p class="eyebrow">Seu grupo principal de ofertas</p>
+      <h1>Ofertas para sua casa <em>e muito mais.</em></h1>
+      <p class="lead">Produtos úteis, achados do dia e promoções selecionadas para você economizar sem perder tempo procurando.</p>
       <span class="free-pill">Grupos gratuitos e ativos</span>
     </header>
 
-    <section class="groups" aria-label="Grupos de ofertas disponíveis">
+    <section class="featured" aria-label="Grupo principal Propaga Promo">
+      <div class="featured-visual">
+        <img src="/assets/propaga-promo-grupo.webp" alt="Imagem do grupo Propaga Promo" width="640" height="640">
+      </div>
+      <div class="featured-copy">
+        <p class="kicker">Grupo geral em destaque</p>
+        <h2>Propaga Promo: <em>ofertas que ajudam no dia a dia.</em></h2>
+        <p class="description">Receba promoções de produtos para casa, cozinha, organização, decoração, tecnologia e outros achados que realmente valem a pena.</p>
+        <div class="chips"><span>Casa</span><span>Cozinha</span><span>Organização</span><span>Utilidades</span><span>Tecnologia</span></div>
+        <a class="button primary track-group" data-niche="geral" data-position="featured" href="https://chat.whatsapp.com/LttK4TaAUrU0574MxDvG9x?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a12.2 12.2 0 0 0-10.4 18.6L3.5 29l7.6-2a12.4 12.4 0 1 0 4.9-24Zm7.1 16.7c-.3.8-1.8 1.6-2.5 1.7-.6.1-1.4.1-2.3-.2-.5-.2-1.2-.4-2.1-.8-3.7-1.6-6.1-5.2-6.3-5.5-.2-.2-1.5-2-1.5-3.7 0-1.8 1-2.7 1.3-3 .3-.4.7-.5 1-.5h.7c.2 0 .5-.1.8.6l1.1 2.6c.1.2.2.4 0 .7l-.9 1.2c-.2.2-.4.4-.2.8.2.3.9 1.5 2 2.4 1.3 1.2 2.4 1.5 2.8 1.7.3.2.5.2.7-.1l1.2-1.4c.2-.3.5-.3.8-.2l2.4 1.1c.4.2.6.3.7.4.1.2.1.9-.2 1.7Z"/></svg>Entrar no grupo Propaga Promo</a>
+      </div>
+    </section>
+
+    <div class="section-heading">
+      <span>Mais ofertas para você</span>
+      <h2>Confira também nossos outros grupos</h2>
+      <p>Escolha os temas que combinam com seus interesses.</p>
+    </div>
+
+    <section class="groups" aria-label="Outros grupos de ofertas disponíveis">
       <article class="card sport">
         <div class="visual"><img src="/assets/propaga-o-esporte-base.webp" alt="Tênis, roupas, suplementos e equipamentos esportivos" width="1080" height="1080"><span class="status">Grupo ativo</span></div>
         <div class="content">
           <div class="icon" aria-hidden="true">🏆</div>
-          <p class="kicker">Prepare-se para a Black Friday</p>
+          <p class="kicker">Esportes</p>
           <h2>Ofertas do Esporte</h2>
-          <p class="description">Achados de tênis, moda, suplementos, equipamentos e acessórios para diferentes esportes.</p>
+          <p class="description">Tênis, moda, suplementos e equipamentos.</p>
           <div class="chips"><span>Tênis</span><span>Moda</span><span>Suplementos</span><span>Equipamentos</span></div>
           <div class="actions">
-            <a class="button primary track-group" data-niche="esporte" href="https://chat.whatsapp.com/JRFP6jRsveIJ5JXpXusHvq" target="_blank" rel="noopener noreferrer">Entrar direto no grupo #22</a>
-            <a class="button secondary track-lp" data-niche="esporte" href="/propaga-o-esporte">Conhecer o Ofertas do Esporte →</a>
+            <a class="button primary track-group" data-niche="esporte" data-position="other_groups" href="https://chat.whatsapp.com/JRFP6jRsveIJ5JXpXusHvq" target="_blank" rel="noopener noreferrer">Entrar no grupo</a>
           </div>
         </div>
       </article>
@@ -96,13 +131,12 @@
         <div class="visual"><img src="/assets/propaga-o-beach.webp" alt="Produtos e ofertas de Beach Tennis" width="1080" height="1080"><span class="status">Grupo ativo</span></div>
         <div class="content">
           <div class="icon" aria-hidden="true">🏖️</div>
-          <p class="kicker">Para quem vive na areia</p>
+          <p class="kicker">Beach Tennis</p>
           <h2>Ofertas do Beach</h2>
-          <p class="description">Achados para jogar melhor e pagar menos, com uma curadoria focada em Beach Tennis.</p>
+          <p class="description">Raquetes, bolas, roupas e acessórios.</p>
           <div class="chips"><span>Raquetes</span><span>Bolas</span><span>Acessórios</span><span>Proteção</span></div>
           <div class="actions">
-            <a class="button primary track-group" data-niche="beach" href="https://chat.whatsapp.com/DvctjRKHqy7HxQq1Lwmc2R" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a12.2 12.2 0 0 0-10.4 18.6L3.5 29l7.6-2a12.4 12.4 0 1 0 4.9-24Zm7.1 16.7c-.3.8-1.8 1.6-2.5 1.7-.6.1-1.4.1-2.3-.2-.5-.2-1.2-.4-2.1-.8-3.7-1.6-6.1-5.2-6.3-5.5-.2-.2-1.5-2-1.5-3.7 0-1.8 1-2.7 1.3-3 .3-.4.7-.5 1-.5h.7c.2 0 .5-.1.8.6l1.1 2.6c.1.2.2.4 0 .7l-.9 1.2c-.2.2-.4.4-.2.8.2.3.9 1.5 2 2.4 1.3 1.2 2.4 1.5 2.8 1.7.3.2.5.2.7-.1l1.2-1.4c.2-.3.5-.3.8-.2l2.4 1.1c.4.2.6.3.7.4.1.2.1.9-.2 1.7Z"/></svg>Entrar direto no grupo</a>
-            <a class="button secondary track-lp" data-niche="beach" href="/propaga-na-areia">Conhecer o Ofertas do Beach →</a>
+            <a class="button primary track-group" data-niche="beach" data-position="other_groups" href="https://chat.whatsapp.com/DvctjRKHqy7HxQq1Lwmc2R" target="_blank" rel="noopener noreferrer">Entrar no grupo</a>
           </div>
         </div>
       </article>
@@ -111,13 +145,12 @@
         <div class="visual"><img src="/assets/propaga-a-pesca-conceito.webp" alt="Produtos e ofertas para pesca" width="1080" height="1080"><span class="status">Grupo ativo</span></div>
         <div class="content">
           <div class="icon" aria-hidden="true">🎣</div>
-          <p class="kicker">Equipamentos para a próxima pescaria</p>
+          <p class="kicker">Pesca</p>
           <h2>Ofertas da Pesca</h2>
-          <p class="description">Ofertas para pescadores, do equipamento básico aos acessórios que fazem diferença na água.</p>
+          <p class="description">Varas, carretilhas, iscas e acessórios.</p>
           <div class="chips"><span>Varas</span><span>Carretilhas</span><span>Iscas</span><span>Acessórios</span></div>
           <div class="actions">
-            <a class="button primary track-group" data-niche="pesca" href="https://chat.whatsapp.com/DCZR0Nd7zMD6pzisti6phW?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a12.2 12.2 0 0 0-10.4 18.6L3.5 29l7.6-2a12.4 12.4 0 1 0 4.9-24Zm7.1 16.7c-.3.8-1.8 1.6-2.5 1.7-.6.1-1.4.1-2.3-.2-.5-.2-1.2-.4-2.1-.8-3.7-1.6-6.1-5.2-6.3-5.5-.2-.2-1.5-2-1.5-3.7 0-1.8 1-2.7 1.3-3 .3-.4.7-.5 1-.5h.7c.2 0 .5-.1.8.6l1.1 2.6c.1.2.2.4 0 .7l-.9 1.2c-.2.2-.4.4-.2.8.2.3.9 1.5 2 2.4 1.3 1.2 2.4 1.5 2.8 1.7.3.2.5.2.7-.1l1.2-1.4c.2-.3.5-.3.8-.2l2.4 1.1c.4.2.6.3.7.4.1.2.1.9-.2 1.7Z"/></svg>Entrar direto no grupo</a>
-            <a class="button secondary track-lp" data-niche="pesca" href="/propaga-a-pesca">Conhecer o Ofertas da Pesca →</a>
+            <a class="button primary track-group" data-niche="pesca" data-position="other_groups" href="https://chat.whatsapp.com/DCZR0Nd7zMD6pzisti6phW?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer">Entrar no grupo</a>
           </div>
         </div>
       </article>
@@ -126,13 +159,12 @@
         <div class="visual"><img src="/assets/propaga-o-natal-conceito.webp" alt="Produtos, presentes e decoração de Natal" width="1080" height="1080"><span class="status">Grupo ativo</span></div>
         <div class="content">
           <div class="icon" aria-hidden="true">🎄</div>
-          <p class="kicker">Economia para celebrar</p>
+          <p class="kicker">Natal</p>
           <h2>Ofertas do Natal</h2>
-          <p class="description">Achados para decorar, presentear e preparar um Natal especial sem estourar o orçamento.</p>
+          <p class="description">Decoração, presentes, luzes e mesa posta.</p>
           <div class="chips"><span>Decoração</span><span>Presentes</span><span>Luzes</span><span>Mesa posta</span></div>
           <div class="actions">
-            <a class="button primary track-group" data-niche="natal" href="https://chat.whatsapp.com/IrkXi3Pb4gAB5o4Yx3JSdC" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a12.2 12.2 0 0 0-10.4 18.6L3.5 29l7.6-2a12.4 12.4 0 1 0 4.9-24Zm7.1 16.7c-.3.8-1.8 1.6-2.5 1.7-.6.1-1.4.1-2.3-.2-.5-.2-1.2-.4-2.1-.8-3.7-1.6-6.1-5.2-6.3-5.5-.2-.2-1.5-2-1.5-3.7 0-1.8 1-2.7 1.3-3 .3-.4.7-.5 1-.5h.7c.2 0 .5-.1.8.6l1.1 2.6c.1.2.2.4 0 .7l-.9 1.2c-.2.2-.4.4-.2.8.2.3.9 1.5 2 2.4 1.3 1.2 2.4 1.5 2.8 1.7.3.2.5.2.7-.1l1.2-1.4c.2-.3.5-.3.8-.2l2.4 1.1c.4.2.6.3.7.4.1.2.1.9-.2 1.7Z"/></svg>Entrar direto no grupo</a>
-            <a class="button secondary track-lp" data-niche="natal" href="/propaga-o-natal">Conhecer o Ofertas do Natal →</a>
+            <a class="button primary track-group" data-niche="natal" data-position="other_groups" href="https://chat.whatsapp.com/IrkXi3Pb4gAB5o4Yx3JSdC" target="_blank" rel="noopener noreferrer">Entrar no grupo</a>
           </div>
         </div>
       </article>
@@ -146,7 +178,7 @@
     const params=new URLSearchParams(location.search);
     const tracking={page_name:'propaga_promo',utm_source:params.get('utm_source')||'',utm_medium:params.get('utm_medium')||'',utm_campaign:params.get('utm_campaign')||'',utm_content:params.get('utm_content')||''};
     dataLayer.push({event:'landing_page_view',...tracking});
-    document.querySelectorAll('.track-group').forEach(link=>link.addEventListener('click',()=>dataLayer.push({event:'whatsapp_group_click',...tracking,niche:link.dataset.niche,cta_position:'hub_card'})));
+    document.querySelectorAll('.track-group').forEach(link=>link.addEventListener('click',()=>dataLayer.push({event:'whatsapp_group_click',...tracking,niche:link.dataset.niche,cta_position:link.dataset.position||'hub_card'})));
     document.querySelectorAll('.track-lp').forEach(link=>link.addEventListener('click',()=>dataLayer.push({event:'group_landing_page_click',...tracking,niche:link.dataset.niche,cta_position:'hub_card'})));
   </script>
 </body>
